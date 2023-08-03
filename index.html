@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivor items calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="mainDiv">
+        <h1>Survivor item calculator</h1>
+        <i>work in progress</i>
+        <h3>Choose item:</h3>
+        <select name="itemsDropdownList" id="itemsDropdownList">
+            <option value="empty"></option>
+            <option value="Med-kit">Med-kit</option>
+            <option value="Toolbox">Toolbox</option>
+            <option value="Flashlight">Flashlight</option>
+        </select>
+        <br>
+        <h3>Choose rarity(for med-kits and flashlights):</h3>
+        <select name="itemRarity" id="itemRarity">
+            <option value="----"></option>
+            <option value="Brown">Brown</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Green">Green</option>
+            <option value="Purple">Purple</option>
+        </select>
+
+        <h3>Choose variation(for toolboxes): </h3>
+        <select name="variation" id="variation">
+            <option value="----"></option>
+            <option value="Brown">Brown</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Mechanic's Toolbox">Mechanic's Toolbox</option>
+            <option value="Commodious Toolbox">Commodious Toolbox</option>
+            <option value="Engineer's Toolbox">Engineer's Toolbox</option>
+            <option value="Alex's Toolbox">Alex's Toolbox</option>
+        </select>
+        <br>
+        <br>
+        <h3>Streetwise?</h3>
+        <input type="checkbox" value="true" id="streetwise">
+        <h3>Choose addons:</h3>
+        <h3 id="addon1"></h3>
+        <select name="addons1" id="addons1">
+            <option value="----"></option>
+            <option value="----Medkit addons---">----Medkit addons---</option>
+            <option value="Gel Dressings"> Gel Dressings </option>
+            <option value="Abdominal Dressing"> Abdominal Dressing </option>
+            <option value="Gauze Roll"> Gauze Roll </option>
+            <option value="Medical Scissors"> Medical Scissors </option>
+            <option value="Self Adherent Wrap"> Self Adherent Wrap </option>
+            <option value="Bandages"> Bandages </option>
+            <option value="Butterfly Tape"> Butterfly Tape </option>
+            <option value="----Toolbox addons---">----Toolbox addons---</option>
+            <option value="Socket Swivels"> Socket Swivels </option>
+            <option value="Wire Spool"> Wire Spool </option>
+            <option value="Clean Rag"> Clean Rag </option>
+            <option value="Scraps"> Scraps </option>
+            <option value="----Flashlight addons---">----Flashlight addons---</option>
+            <option value="Odd Bulb"> Odd Bulb </option>
+            <option value="Long Life Battery"> Long Life Battery </option>
+            <option value="Heavy Duty Battery"> Heavy Duty Battery </option>
+            <option value="Low Amp Filament"> Low Amp Filament </option>
+            <option value="Battery"> Battery </option>
+        </select>
+        <h3 id="addon2"></h3>
+        <select name="addons2" id="addons2">
+            <option value="----"></option>
+            <option value="----Medkit addons---">----Medkit addons---</option>
+            <option value="Gel Dressings"> Gel Dressings </option>
+            <option value="Abdominal Dressing"> Abdominal Dressing </option>
+            <option value="Gauze Roll"> Gauze Roll </option>
+            <option value="Medical Scissors"> Medical Scissors </option>
+            <option value="Self Adherent Wrap"> Self Adherent Wrap </option>
+            <option value="Bandages"> Bandages </option>
+            <option value="Butterfly Tape"> Butterfly Tape </option>
+            <option value="----Toolbox addons---">----Toolbox addons---</option>
+            <option value="Socket Swivels"> Socket Swivels </option>
+            <option value="Wire Spool"> Wire Spool </option>
+            <option value="Clean Rag"> Clean Rag </option>
+            <option value="Scraps"> Scraps </option>
+            <option value="----Flashlight addons---">----Flashlight addons---</option>
+            <option value="Odd Bulb"> Odd Bulb </option>
+            <option value="Long Life Battery"> Long Life Battery </option>
+            <option value="Heavy Duty Battery"> Heavy Duty Battery </option>
+            <option value="Low Amp Filament"> Low Amp Filament </option>
+            <option value="Battery"> Battery </option>
+        </select>
+
+
+        <br>
+        <br>
+        <button onclick="statCalc()">Calculate</button>
+        <br><br>
+        <button type="button" value="Reload Page" onClick="history.go(0)">New item</button>
+
+    </div>
+
+    <div id="resultDiv">
+        <h3>Result:</h3>
+        <h3 id="itemResult"></h3>
+        <h3 id="rarityResult"></h3>
+        <h3 id="duration"></h3>
+        <h3 id="healSpeed"></h3>
+        <h3 id="repSpeed"></h3>
+    </div>
+    <script>
+
+        function statCalc() {
+            let item = document.querySelector("#itemsDropdownList")
+            let rarity = document.querySelector("#itemRarity")
+            let baseDuration = 0;
+
+            let addon1Res = document.querySelector("#addons1")
+            let addon2Res = document.querySelector("#addons2")
+            let toolboxVariation = document.querySelector("#variation")
+
+            let isStreetwise = document.getElementById("streetwise")
+            itemResult.innerHTML = "Item: " + item.value
+            rarityResult.innerHTML = "Rarity: " + rarity.value;
+
+            if (item.value === "Med-kit") {
+                baseDuration = 24;
+                if (isStreetwise.checked === true) {
+                    baseDuration *= 1.25;
+                }
+                let healingSpeed = 0;
+                if (rarity.value === "Yellow") {
+                    healingSpeed = 40
+                } else if (rarity.value === "Green") {
+                    healingSpeed = 45
+                } else if (rarity.value === "Purple") {
+                    healingSpeed = 50
+                }
+
+                switch (addon1Res.value) {
+                    case "Gel Dressings":
+                        baseDuration += 16;
+                        break;
+                    case "Abdominal Dressing":
+                        healingSpeed += 15;
+                        break;
+                    case "Gauze Roll":
+                        baseDuration += 10;
+                        break;
+                    case "Medical Scissors":
+                        healingSpeed += 10;
+                        break;
+                    case "Self Adherent Wrap":
+                        baseDuration += 8;
+                        healingSpeed += 5;
+                        break;
+                    case "Bandages":
+                        baseDuration += 8;
+                        break;
+                    case "Butterfly Tape":
+                        healingSpeed += 5;
+                        break;
+                }
+                switch (addon2Res.value) {
+                    case "Gel Dressings":
+                        baseDuration += 16;
+                        break;
+                    case "Abdominal Dressing":
+                        healingSpeed += 15;
+                        break;
+                    case "Gauze Roll":
+                        baseDuration += 10;
+                        break;
+                    case "Medical Scissors":
+                        healingSpeed += 10;
+                        break;
+                    case "Self Adherent Wrap":
+                        baseDuration += 8;
+                        healingSpeed += 5;
+                        break;
+                    case "Bandages":
+                        baseDuration += 8;
+                        break;
+                    case "Butterfly Tape":
+                        healingSpeed += 5;
+                        break;
+                }
+
+                healSpeed.innerHTML = "Healing speed: " + healingSpeed + "%";
+                repSpeed.innerHTML = "";
+                duration.innerHTML = "Duration: " + baseDuration + " charges";
+            } else if (item.value === "Toolbox") {
+                let repairSpeed = 0;
+                if (toolboxVariation.value === "Brown") {
+                    baseDuration = 16;
+                    repairSpeed = 50;
+                } else if (toolboxVariation.value === "Yellow") {
+                    baseDuration = 20;
+                    repairSpeed = 50;
+                } else if (toolboxVariation.value === "Mechanic's Toolbox") {
+                    baseDuration = 16;
+                    repairSpeed = 75;
+                } else if (toolboxVariation.value === "Commodious Toolbox") {
+                    baseDuration = 32;
+                    repairSpeed = 50;
+                } else if (toolboxVariation.value === "Engineer's Toolbox") {
+                    baseDuration = 16;
+                    repairSpeed = 100;
+                } else if (toolboxVariation.value === "Alex's Toolbox") {
+                    baseDuration = 24;
+                    repairSpeed = 10;
+                }
+                if (isStreetwise.checked === true) {
+                    baseDuration *= 1.25;
+                }
+
+                switch (addon1Res.value) {
+                    case "Socket Swivels":
+                        repairSpeed += 30;
+                        break;
+                    case "Wire Spool":
+                        baseDuration += 12;
+                        break;
+                    case "Clean Rag":
+                        repairSpeed += 20;
+                        break;
+                    case "Scraps":
+                        baseDuration += 8;
+                        break;
+                }
+                switch (addon2Res.value) {
+                    case "Socket Swivels":
+                        repairSpeed += 30;
+                        break;
+                    case "Wire Spool":
+                        baseDuration += 12;
+                        break;
+                    case "Clean Rag":
+                        repairSpeed += 20;
+                        break;
+                    case "Scraps":
+                        baseDuration += 8;
+                        break;
+                }
+
+                repSpeed.innerHTML = "Repair speed: +" + repairSpeed + "%";
+                healSpeed.innerHTML = ""
+                duration.innerHTML = "Duration: " + baseDuration + " charges";
+            } else if (item.value === "Flashlight") {
+                if (rarity.value === "Yellow") {
+                    baseDuration = 8;
+                } else if (rarity.value === "Green") {
+                    baseDuration = 8;
+                } else if (rarity.value === "Purple") {
+                    baseDuration = 12;
+                }
+                if (isStreetwise.checked === true && rarity.value === "Green") {
+                    baseDuration *= 1.36;
+                } else if (isStreetwise.checked === true) {
+                    baseDuration *= 1.25;
+                }
+
+                switch (addon1Res.value) {
+                    case "Odd Bulb":
+                        baseDuration *= 0.86;
+                        break;
+                    case "Long Life Battery":
+                        baseDuration += 6;
+                        break;
+                    case "Heavy Duty Battery":
+                        baseDuration += 4;
+                        break;
+                    case "Low Amp Filament":
+                        baseDuration *= 1.2;
+                        break;
+                    case "Battery":
+                        baseDuration += 2;
+                        break;
+                }
+                switch (addon1Res.value) {
+                    case "Odd Bulb":
+                        baseDuration *= 0.86;
+                        break;
+                    case "Long Life Battery":
+                        baseDuration += 6;
+                        break;
+                    case "Heavy Duty Battery":
+                        baseDuration += 4;
+                        break;
+                    case "Low Amp Filament":
+                        baseDuration *= 1.2;
+                        break;
+                    case "Battery":
+                        baseDuration += 2;
+                        break;
+                }
+                duration.innerHTML = "Duration: " + baseDuration.toFixed(2) + " seconds";
+                healSpeed.innerHTML = ""
+                repSpeed.innerHTML = ""
+            }
+        }
+    </script>
+
+    
+
+</body>
+
+</html>
