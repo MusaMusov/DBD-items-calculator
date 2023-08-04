@@ -229,18 +229,22 @@
                 } else if (item.value === "Toolbox") {
                     baseDuration = 20;
                     repairSpeed = 50;
+                    sabotageTime *= 0.9;
                 } else if (item.value === "Mechanic's Toolbox") {
                     baseDuration = 16;
                     repairSpeed = 75;
+                    sabotageTime *= 1.1;
                 } else if (item.value === "Commodious Toolbox") {
                     baseDuration = 32;
                     repairSpeed = 50;
                 } else if (item.value === "Engineer's Toolbox") {
                     baseDuration = 16;
                     repairSpeed = 100;
+                    sabotageTime *= 1.25;
                 } else if (item.value === "Alex's Toolbox") {
                     baseDuration = 24;
                     repairSpeed = 10;
+                    sabotageTime *= 0.75;
                 }
                 if (isStreetwise.checked === true) {
                     baseDuration *= 1.25;
