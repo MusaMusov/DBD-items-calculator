@@ -310,12 +310,12 @@
                 let beamLength = 10;
                 let blindDuration = 2;
                 let batteryEfficiency = 1;
-                if (rarity.value === "Yellow") {
+                if (item.value === "Flashlight") {
                     baseDuration = 8;
-                } else if (rarity.value === "Green") {
+                } else if (item.value === "Sport Flashlight") {
                     baseDuration = 8;
                     batteryEfficiency += 0.11;
-                } else if (rarity.value === "Purple") {
+                } else if (item.value === "Utility Flashlight") {
                     baseDuration = 12;
                     blindDuration *= 1.15;
                 }
@@ -405,7 +405,7 @@
                 Beam length: ${beamLength.toFixed(2)} meters`
                 healSpeed.innerHTML = ""
                 repSpeed.innerHTML = ""
-                itemResult.innerHTML = `Item: ${rarity.value} ${item.value}`
+                itemResult.innerHTML = `Item: ${item.value}`
             }
         }
     </script>
