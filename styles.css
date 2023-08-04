@@ -22,3 +22,15 @@ body {
 #addonStyle {
     margin-bottom: 0;
 }
+
+@media (max-width: 576px) {
+    body {
+        flex-direction: column;
+    }
+    #mainDiv {
+        width: 90%;
+    }
+    #resultDiv {
+        width: 87.5%;
+    }
+}
