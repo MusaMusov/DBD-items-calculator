@@ -15,39 +15,35 @@
         <h3>Choose item:</h3>
         <select name="itemsDropdownList" id="itemsDropdownList">
             <option value="empty"></option>
-            <option value="Med-kit">Med-kit</option>
+            <option value="----Med-kits----">----Med-kits----</option>
+            <option value="Camping Aid Kit">Camping Aid Kit</option>
+            <option value="First Aid Kit">First Aid Kit</option>
+            <option value="Emergency Med-Kit">Emergency Med-Kit</option>
+            <option value="Ranger Med-Kit">Ranger Med-Kit</option>
+            <option value="----Toolboxes----">----Toolboxes----</option>
+            <option value="Worn-Out Tools">Worn-Out Tools</option>
             <option value="Toolbox">Toolbox</option>
-            <option value="Flashlight">Flashlight</option>
-        </select>
-        <br>
-        <h3>Choose rarity(for med-kits and flashlights):</h3>
-        <select name="itemRarity" id="itemRarity">
-            <option value="----"></option>
-            <option value="Brown">Brown</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Green">Green</option>
-            <option value="Purple">Purple</option>
-        </select>
-
-        <h3>Choose variation(for toolboxes): </h3>
-        <select name="variation" id="variation">
-            <option value="----"></option>
-            <option value="Brown">Brown</option>
-            <option value="Yellow">Yellow</option>
             <option value="Mechanic's Toolbox">Mechanic's Toolbox</option>
             <option value="Commodious Toolbox">Commodious Toolbox</option>
             <option value="Engineer's Toolbox">Engineer's Toolbox</option>
             <option value="Alex's Toolbox">Alex's Toolbox</option>
+            <option value="----Flashlights----">----Flashlights----</option>
+            <option value="Flashlight">Flashlight</option>
+            <option value="Sport Flashlight">Sport Flashlight</option>
+            <option value="Utility Flashlight">Utility Flashlight</option>
         </select>
+        
         <br>
-        <br>
+        
         <h3>Streetwise?</h3>
         <input type="checkbox" value="true" id="streetwise">
         <h3 id="addonStyle">Choose addons:</h3>
         <h3 id="addon1"></h3>
         <select name="addons1" id="addons1">
             <option value="----"></option>
-            <option value="----Medkit addons---">----Medkit addons---</option>
+
+                                <!-- Medkit addons -->
+            <option value="----Medkit addons----">----Medkit addons----</option>
             <option value="Gel Dressings"> Gel Dressings </option>
             <option value="Abdominal Dressing"> Abdominal Dressing </option>
             <option value="Gauze Roll"> Gauze Roll </option>
@@ -55,21 +51,36 @@
             <option value="Self Adherent Wrap"> Self Adherent Wrap </option>
             <option value="Bandages"> Bandages </option>
             <option value="Butterfly Tape"> Butterfly Tape </option>
-            <option value="----Toolbox addons---">----Toolbox addons---</option>
+
+                                <!-- Toolbox addons -->
+            <option value="----Toolbox addons----">----Toolbox addons----</option>
+            <option value="Brand New Part"> Brand New Part </option>
+            <option value="Grip Wrench"> Grip Wrench </option>
+            <option value="Hacksaw"> Hacksaw </option>
+            <option value="Cutting Wire"> Cutting Wire </option>
             <option value="Socket Swivels"> Socket Swivels </option>
             <option value="Wire Spool"> Wire Spool </option>
             <option value="Clean Rag"> Clean Rag </option>
             <option value="Scraps"> Scraps </option>
-            <option value="----Flashlight addons---">----Flashlight addons---</option>
+
+                                <!-- Flashlight addons -->
+            <option value="----Flashlight addons---">----Flashlight addons----</option>
             <option value="Odd Bulb"> Odd Bulb </option>
+            <option value="High-End Sapphire Lens"> High-End Sapphire Lens </option>
+            <option value="Intense Halogen"> Intense Halogen </option>
             <option value="Long Life Battery"> Long Life Battery </option>
+            <option value="Focus Lens"> Focus Lens </option>
             <option value="Heavy Duty Battery"> Heavy Duty Battery </option>
+            <option value="TIR Optic"> TIR Optic </option>
             <option value="Low Amp Filament"> Low Amp Filament </option>
             <option value="Battery"> Battery </option>
+            <option value="Power Bulb"> Power Bulb </option>
         </select>
         <h3 id="addon2"></h3>
         <select name="addons2" id="addons2">
             <option value="----"></option>
+
+                                <!-- Medkit addons -->
             <option value="----Medkit addons---">----Medkit addons---</option>
             <option value="Gel Dressings"> Gel Dressings </option>
             <option value="Abdominal Dressing"> Abdominal Dressing </option>
@@ -78,17 +89,30 @@
             <option value="Self Adherent Wrap"> Self Adherent Wrap </option>
             <option value="Bandages"> Bandages </option>
             <option value="Butterfly Tape"> Butterfly Tape </option>
+
+                                <!-- Toolbox addons -->
             <option value="----Toolbox addons---">----Toolbox addons---</option>
+            <option value="Brand New Part"> Brand New Part </option>
+            <option value="Grip Wrench"> Grip Wrench </option>
+            <option value="Hacksaw"> Hacksaw </option>
+            <option value="Cutting Wire"> Cutting Wire </option>
             <option value="Socket Swivels"> Socket Swivels </option>
             <option value="Wire Spool"> Wire Spool </option>
             <option value="Clean Rag"> Clean Rag </option>
             <option value="Scraps"> Scraps </option>
+
+                                <!-- Flashlight addons -->
             <option value="----Flashlight addons---">----Flashlight addons---</option>
             <option value="Odd Bulb"> Odd Bulb </option>
+            <option value="High-End Sapphire Lens"> High-End Sapphire Lens </option>
+            <option value="Intense Halogen"> Intense Halogen </option>
             <option value="Long Life Battery"> Long Life Battery </option>
+            <option value="Focus Lens"> Focus Lens </option>
             <option value="Heavy Duty Battery"> Heavy Duty Battery </option>
+            <option value="TIR Optic"> TIR Optic </option>
             <option value="Low Amp Filament"> Low Amp Filament </option>
             <option value="Battery"> Battery </option>
+            <option value="Power Bulb"> Power Bulb </option>
         </select>
 
         <br>
@@ -96,14 +120,15 @@
         <br>
         <button onclick="statCalc()">Calculate</button>
         <br>
-        <button type="button" value="Reload Page" onClick="history.go(0)">New item</button>
-
+        <br>
+        <i>PS: Calculating repair time saved per toolbox is quite complicated <br>
+            and requires testing which i cannot do by myself in an efficient way. <br>
+            Results are approximate and might change in the future.</i>
     </div>
 
     <div id="resultDiv">
         <h3>Result:</h3>
         <h3 id="itemResult"></h3>
-        <h3 id="rarityResult"></h3>
         <h3 id="duration"></h3>
         <h3 id="healSpeed"></h3>
         <h3 id="repSpeed"></h3>
@@ -112,29 +137,29 @@
 
         function statCalc() {
             let item = document.querySelector("#itemsDropdownList")
-            let rarity = document.querySelector("#itemRarity")
             let baseDuration = 0;
 
             let addon1Res = document.querySelector("#addons1")
             let addon2Res = document.querySelector("#addons2")
-            let toolboxVariation = document.querySelector("#variation")
 
             let isStreetwise = document.getElementById("streetwise")
-            itemResult.innerHTML = "Item: " + item.value
-            rarityResult.innerHTML = "Rarity: " + rarity.value;
+            
 
-            if (item.value === "Med-kit") {
+            if (item.value.includes("Kit")) {
                 baseDuration = 24;
+                
                 if (isStreetwise.checked === true) {
                     baseDuration *= 1.25;
                 }
                 let healingSpeed = 0;
-                if (rarity.value === "Yellow") {
-                    healingSpeed = 40
-                } else if (rarity.value === "Green") {
-                    healingSpeed = 45
-                } else if (rarity.value === "Purple") {
-                    healingSpeed = 50
+                if (item.value === "Camping Aid Kit") {
+                    healingSpeed = 35;
+                } else if (item.value === "First Aid Kit") {
+                    healingSpeed = 40;
+                } else if (item.value === "Emergency Med-Kit") {
+                    healingSpeed = 45;
+                } else if (item.value === "Ranger Med-Kit") {
+                    healingSpeed = 50;
                 }
 
                 switch (addon1Res.value) {
@@ -185,28 +210,35 @@
                         healingSpeed += 5;
                         break;
                 }
-
-                healSpeed.innerHTML = "Healing speed: " + healingSpeed + "%";
+                let healTime = 16 - (8 * (healingSpeed / 100));
+                healSpeed.innerHTML = `Altruistic healing speed: +${healingSpeed}% </br></br></br>
+                Altruistic heal time: ${healTime.toFixed(2)} seconds </br></br></br>
+                Available self-heals: ${Math.floor(baseDuration / 24)} </br></br></br>
+                Available altruistic heals: ${Math.floor(baseDuration / 16)}`;
                 repSpeed.innerHTML = "";
                 duration.innerHTML = "Duration: " + baseDuration + " charges";
-            } else if (item.value === "Toolbox") {
+                itemResult.innerHTML = `Item: ${item.value}`
+            } else if (item.value.includes("Tool")) {
                 let repairSpeed = 0;
-                if (toolboxVariation.value === "Brown") {
+                let sabotageTime = 3;
+                let sabotageDuration = 30;
+                let repairTimeSaved = 0;
+                if (item.value === "Worn-Out Tools") {
                     baseDuration = 16;
                     repairSpeed = 50;
-                } else if (toolboxVariation.value === "Yellow") {
+                } else if (item.value === "Toolbox") {
                     baseDuration = 20;
                     repairSpeed = 50;
-                } else if (toolboxVariation.value === "Mechanic's Toolbox") {
+                } else if (item.value === "Mechanic's Toolbox") {
                     baseDuration = 16;
                     repairSpeed = 75;
-                } else if (toolboxVariation.value === "Commodious Toolbox") {
+                } else if (item.value === "Commodious Toolbox") {
                     baseDuration = 32;
                     repairSpeed = 50;
-                } else if (toolboxVariation.value === "Engineer's Toolbox") {
+                } else if (item.value === "Engineer's Toolbox") {
                     baseDuration = 16;
                     repairSpeed = 100;
-                } else if (toolboxVariation.value === "Alex's Toolbox") {
+                } else if (item.value === "Alex's Toolbox") {
                     baseDuration = 24;
                     repairSpeed = 10;
                 }
@@ -215,6 +247,18 @@
                 }
 
                 switch (addon1Res.value) {
+                    case "Brand New Part":
+                        repairTimeSaved += 10;
+                        break;
+                    case "Grip Wrench":
+                        sabotageDuration += 15;
+                        break;
+                    case "Hacksaw":
+                        sabotageTime *= 0.8;
+                        break;
+                    case "Cutting Wire":
+                        sabotageTime *= 0.85;
+                        break;
                     case "Socket Swivels":
                         repairSpeed += 30;
                         break;
@@ -229,6 +273,18 @@
                         break;
                 }
                 switch (addon2Res.value) {
+                    case "Brand New Part":
+                        repairTimeSaved += 10;
+                        break;
+                    case "Grip Wrench":
+                        sabotageDuration += 15;
+                        break;
+                    case "Hacksaw":
+                        sabotageTime *= 0.8;
+                        break;
+                    case "Cutting Wire":
+                        sabotageTime *= 0.85;
+                        break;
                     case "Socket Swivels":
                         repairSpeed += 30;
                         break;
@@ -242,65 +298,117 @@
                         baseDuration += 8;
                         break;
                 }
-
-                repSpeed.innerHTML = "Repair speed: +" + repairSpeed + "%";
-                healSpeed.innerHTML = ""
+                repairTimeSaved += (baseDuration * (repairSpeed / 100))
+                repSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br></br>
+                Repair time saved: ~${repairTimeSaved.toFixed(2)} seconds </br></br></br>
+                Sabotage duration: ${sabotageDuration} seconds </br></br></br>
+                Sabotage time: ${sabotageTime.toFixed(2)} seconds`; 
                 duration.innerHTML = "Duration: " + baseDuration + " charges";
-            } else if (item.value === "Flashlight") {
+                itemResult.innerHTML = `Item: ${item.value}`
+                healSpeed.innerHTML = ""
+            } else if (item.value.includes("Flashlight")) {
+                let beamLength = 10;
+                let blindDuration = 2;
+                let batteryEfficiency = 1;
                 if (rarity.value === "Yellow") {
                     baseDuration = 8;
                 } else if (rarity.value === "Green") {
                     baseDuration = 8;
+                    batteryEfficiency += 0.11;
                 } else if (rarity.value === "Purple") {
                     baseDuration = 12;
+                    blindDuration *= 1.15;
                 }
-                if (isStreetwise.checked === true && rarity.value === "Green") {
-                    baseDuration *= 1.36;
-                } else if (isStreetwise.checked === true) {
-                    baseDuration *= 1.25;
-                }
+                
 
                 switch (addon1Res.value) {
                     case "Odd Bulb":
                         baseDuration *= 0.86;
+                        blindDuration *= 1.25;
+                        break;
+                    case "High-End Sapphire Lens":
+                        beamLength *= 1.25;
+                        blindDuration *= 1.15;
+                        break;
+                    case "Intense Halogen":
+                        blindDuration *= 1.2;
                         break;
                     case "Long Life Battery":
                         baseDuration += 6;
+                        break;
+                    case "Focus Lens":
+                        beamLength *= 1.25;
+                        blindDuration *= 1.1;
                         break;
                     case "Heavy Duty Battery":
                         baseDuration += 4;
                         break;
                     case "Low Amp Filament":
-                        baseDuration *= 1.2;
+                        batteryEfficiency += 0.2
+                        break;
+                    case "TIR Optic":
+                        blindDuration *= 1.15;
                         break;
                     case "Battery":
                         baseDuration += 2;
                         break;
+                    case "Power Bulb":
+                        blindDuration *= 1.1;
+                        break;
+                    case "Wide Lens":
+                        beamLength *= 0.75;
+                        break;
                 }
-                switch (addon1Res.value) {
+                switch (addon2Res.value) {
                     case "Odd Bulb":
                         baseDuration *= 0.86;
+                        blindDuration *= 1.25;
+                        break;
+                    case "High-End Sapphire Lens":
+                        beamLength *= 1.25;
+                        blindDuration *= 1.15;
+                        break;
+                    case "Intense Halogen":
+                        blindDuration *= 1.2;
                         break;
                     case "Long Life Battery":
                         baseDuration += 6;
+                        break;
+                    case "Focus Lens":
+                        beamLength *= 1.25;
+                        blindDuration *= 1.1;
                         break;
                     case "Heavy Duty Battery":
                         baseDuration += 4;
                         break;
                     case "Low Amp Filament":
-                        baseDuration *= 1.2;
+                        batteryEfficiency += 0.2;
+                        break;
+                    case "TIR Optic":
+                        blindDuration *= 1.15;
                         break;
                     case "Battery":
                         baseDuration += 2;
                         break;
+                    case "Power Bulb":
+                        blindDuration *= 1.1;
+                        break;
+                    case "Wide Lens":
+                        beamLength *= 0.75;
+                        break;
                 }
-                duration.innerHTML = "Duration: " + baseDuration.toFixed(2) + " seconds";
+                 if (isStreetwise.checked === true) {
+                    batteryEfficiency += 0.25;
+                }
+                duration.innerHTML = `Battery life: ${(baseDuration * batteryEfficiency).toFixed(2)} seconds </br></br></br>
+                Blind duration: ${blindDuration.toFixed(2)} seconds </br></br></br>
+                Beam length: ${beamLength.toFixed(2)} meters`
                 healSpeed.innerHTML = ""
                 repSpeed.innerHTML = ""
+                itemResult.innerHTML = `Item: ${rarity.value} ${item.value}`
             }
         }
     </script>
-
     
 
 </body>
