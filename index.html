@@ -145,9 +145,7 @@
             if (item.value.includes("Kit")) {
                 baseDuration = 24;
                 
-                if (isStreetwise.checked === true) {
-                    baseDuration *= 1.25;
-                }
+                
                 let healingSpeed = 0;
                 if (item.value === "Camping Aid Kit") {
                     healingSpeed = 35;
@@ -207,14 +205,23 @@
                         healingSpeed += 5;
                         break;
                 }
+                if (isStreetwise.checked === true) {
+                    baseDuration *= 1.25;
+                }
                 let healTime = 16 - (8 * (healingSpeed / 100));
-                healSpeed.innerHTML = `Altruistic healing speed: +${healingSpeed}% </br></br></br>
+                if(addon1Res.value !== addon2Res.value){
+                    healSpeed.innerHTML = `Altruistic healing speed: +${healingSpeed}% </br></br></br>
                 Altruistic heal time: ${healTime.toFixed(2)} seconds </br></br></br>
                 Available self-heals: ${Math.floor(baseDuration / 24)} </br></br></br>
                 Available altruistic heals: ${Math.floor(baseDuration / 16)}`;
                 repSpeed.innerHTML = "";
                 duration.innerHTML = "Duration: " + baseDuration + " charges";
                 itemResult.innerHTML = `Item: ${item.value}`
+            } else {
+                repSpeed.innerHTML = "";
+                duration.innerHTML = ""
+                healSpeed.innerHTML = "Select 2 unique addons."
+            }
             } else if (item.value.includes("Tool")) {
                 let chargesPerSec = 1;
                 let repairSpeed = 0;
@@ -245,9 +252,7 @@
                     repairSpeed = 10;
                     sabotageTime *= 0.75;
                 }
-                if (isStreetwise.checked === true) {
-                    baseDuration *= 1.25;
-                }
+                
 
                 switch (addon1Res.value) {
                     case "Brand New Part":
@@ -301,15 +306,24 @@
                         baseDuration += 8;
                         break;
                 }
+                if (isStreetwise.checked === true) {
+                    baseDuration *= 1.25;
+                }
                 chargesPerSec += (repairSpeed / 100);
                 toolboxDuration = baseDuration / chargesPerSec;
-                repSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br></br>
+                if(addon1Res.value !== addon2Res.value){
+                    repSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br></br>
                 Repair time saved: ~${((baseDuration - toolboxDuration) + repairTimeSaved).toFixed(2)} seconds </br></br></br>
                 Sabotage duration: ${sabotageDuration} seconds </br></br></br>
                 Sabotage time: ${sabotageTime.toFixed(2)} seconds`; 
                 duration.innerHTML = "Duration: " + baseDuration + " charges";
                 itemResult.innerHTML = `Item: ${item.value}`
                 healSpeed.innerHTML = ""
+            } else {
+                healSpeed.innerHTML = ""
+                duration.innerHTML = ""
+                repSpeed.innerHTML = "Select 2 unique addons."
+            }
             } else if (item.value.includes("Flashlight")) {
                 let beamLength = 10;
                 let blindDuration = 2;
@@ -354,7 +368,7 @@
                         blindDuration *= 1.15;
                         break;
                     case "Battery":
-                        baseDuration += 2;
+                        baseDuration *= 1.2;
                         break;
                     case "Power Bulb":
                         blindDuration *= 1.1;
@@ -386,7 +400,7 @@
                         baseDuration += 4;
                         break;
                     case "Low Amp Filament":
-                        batteryEfficiency += 0.2;
+                        baseDuration *= 1.2;
                         break;
                     case "TIR Optic":
                         blindDuration *= 1.15;
@@ -404,12 +418,18 @@
                  if (isStreetwise.checked === true) {
                     batteryEfficiency += 0.25;
                 }
-                duration.innerHTML = `Battery life: ${(baseDuration * batteryEfficiency).toFixed(2)} seconds </br></br></br>
+                if(addon1Res.value !== addon2Res.value){
+                    duration.innerHTML = `Battery life: ${(baseDuration * batteryEfficiency).toFixed(2)} seconds </br></br></br>
                 Blind duration: ${blindDuration.toFixed(2)} seconds </br></br></br>
                 Beam length: ${beamLength.toFixed(2)} meters`
                 healSpeed.innerHTML = ""
                 repSpeed.innerHTML = ""
                 itemResult.innerHTML = `Item: ${item.value}`
+            } else {
+                healSpeed.innerHTML = ""
+                repSpeed.innerHTML = ""
+                duration.innerHTML = "Select 2 unique addons."
+            }
             }
         }
     </script>
