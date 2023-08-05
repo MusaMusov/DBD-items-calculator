@@ -32,9 +32,9 @@
             <option value="Sport Flashlight">Sport Flashlight</option>
             <option value="Utility Flashlight">Utility Flashlight</option>
         </select>
-        
+
         <br>
-        
+
         <h3>Streetwise?</h3>
         <input type="checkbox" value="true" id="streetwise">
         <h3 id="addonStyle">Choose addons:</h3>
@@ -42,7 +42,7 @@
         <select name="addons1" id="addons1">
             <option value="----"></option>
 
-                                <!-- Medkit addons -->
+            <!-- Medkit addons -->
             <option value="----Medkit addons----">----Medkit addons----</option>
             <option value="Gel Dressings"> Gel Dressings </option>
             <option value="Abdominal Dressing"> Abdominal Dressing </option>
@@ -52,7 +52,7 @@
             <option value="Bandages"> Bandages </option>
             <option value="Butterfly Tape"> Butterfly Tape </option>
 
-                                <!-- Toolbox addons -->
+            <!-- Toolbox addons -->
             <option value="----Toolbox addons----">----Toolbox addons----</option>
             <option value="Brand New Part"> Brand New Part </option>
             <option value="Grip Wrench"> Grip Wrench </option>
@@ -63,7 +63,7 @@
             <option value="Clean Rag"> Clean Rag </option>
             <option value="Scraps"> Scraps </option>
 
-                                <!-- Flashlight addons -->
+            <!-- Flashlight addons -->
             <option value="----Flashlight addons---">----Flashlight addons----</option>
             <option value="Odd Bulb"> Odd Bulb </option>
             <option value="High-End Sapphire Lens"> High-End Sapphire Lens </option>
@@ -80,7 +80,7 @@
         <select name="addons2" id="addons2">
             <option value="----"></option>
 
-                                <!-- Medkit addons -->
+            <!-- Medkit addons -->
             <option value="----Medkit addons---">----Medkit addons---</option>
             <option value="Gel Dressings"> Gel Dressings </option>
             <option value="Abdominal Dressing"> Abdominal Dressing </option>
@@ -90,7 +90,7 @@
             <option value="Bandages"> Bandages </option>
             <option value="Butterfly Tape"> Butterfly Tape </option>
 
-                                <!-- Toolbox addons -->
+            <!-- Toolbox addons -->
             <option value="----Toolbox addons---">----Toolbox addons---</option>
             <option value="Brand New Part"> Brand New Part </option>
             <option value="Grip Wrench"> Grip Wrench </option>
@@ -101,7 +101,7 @@
             <option value="Clean Rag"> Clean Rag </option>
             <option value="Scraps"> Scraps </option>
 
-                                <!-- Flashlight addons -->
+            <!-- Flashlight addons -->
             <option value="----Flashlight addons---">----Flashlight addons---</option>
             <option value="Odd Bulb"> Odd Bulb </option>
             <option value="High-End Sapphire Lens"> High-End Sapphire Lens </option>
@@ -135,17 +135,19 @@
         function statCalc() {
             let item = document.querySelector("#itemsDropdownList")
             let baseDuration = 0;
-
-            let addon1Res = document.querySelector("#addons1")
-            let addon2Res = document.querySelector("#addons2")
-
+            let areAddonsValid = true
+            let addon1Res = (document.querySelector("#addons1")).value
+            let addon2Res = (document.querySelector("#addons2")).value
+            if(addon1Res === addon2Res && addon1Res !== "----") {
+                areAddonsValid = false;
+            }
             let isStreetwise = document.getElementById("streetwise")
-            
+
 
             if (item.value.includes("Kit")) {
                 baseDuration = 24;
-                
-                
+
+
                 let healingSpeed = 0;
                 if (item.value === "Camping Aid Kit") {
                     healingSpeed = 35;
@@ -157,7 +159,7 @@
                     healingSpeed = 50;
                 }
 
-                switch (addon1Res.value) {
+                switch (addon1Res) {
                     case "Gel Dressings":
                         baseDuration += 16;
                         break;
@@ -181,7 +183,7 @@
                         healingSpeed += 5;
                         break;
                 }
-                switch (addon2Res.value) {
+                switch (addon2Res) {
                     case "Gel Dressings":
                         baseDuration += 16;
                         break;
@@ -209,19 +211,19 @@
                     baseDuration *= 1.25;
                 }
                 let healTime = 16 - (8 * (healingSpeed / 100));
-                if(addon1Res.value !== addon2Res.value){
+                if(areAddonsValid){
                     healSpeed.innerHTML = `Altruistic healing speed: +${healingSpeed}% </br></br></br>
-                Altruistic heal time: ${healTime.toFixed(2)} seconds </br></br></br>
-                Available self-heals: ${Math.floor(baseDuration / 24)} </br></br></br>
-                Available altruistic heals: ${Math.floor(baseDuration / 16)}`;
-                repSpeed.innerHTML = "";
-                duration.innerHTML = "Duration: " + baseDuration + " charges";
-                itemResult.innerHTML = `Item: ${item.value}`
-            } else {
-                repSpeed.innerHTML = "";
-                duration.innerHTML = ""
-                healSpeed.innerHTML = "Select 2 unique addons."
-            }
+                    Altruistic heal time: ${healTime.toFixed(2)} seconds </br></br></br>
+                    Available self-heals: ${Math.floor(baseDuration / 24)} </br></br></br>
+                    Available altruistic heals: ${Math.floor(baseDuration / 16)}`;
+                    repSpeed.innerHTML = "";
+                    duration.innerHTML = "Duration: " + baseDuration + " charges";
+                    itemResult.innerHTML = `Item: ${item.value}`
+                } else {
+                    repSpeed.innerHTML = "";
+                    duration.innerHTML = ""
+                    healSpeed.innerHTML = "Select 2 unique addons."
+                }
             } else if (item.value.includes("Tool")) {
                 let chargesPerSec = 1;
                 let repairSpeed = 0;
@@ -252,9 +254,9 @@
                     repairSpeed = 10;
                     sabotageTime *= 0.75;
                 }
-                
 
-                switch (addon1Res.value) {
+
+                switch (addon1Res) {
                     case "Brand New Part":
                         repairTimeSaved += 10;
                         break;
@@ -280,7 +282,7 @@
                         baseDuration += 8;
                         break;
                 }
-                switch (addon2Res.value) {
+                switch (addon2Res) {
                     case "Brand New Part":
                         repairTimeSaved += 10;
                         break;
@@ -311,19 +313,19 @@
                 }
                 chargesPerSec += (repairSpeed / 100);
                 toolboxDuration = baseDuration / chargesPerSec;
-                if(addon1Res.value !== addon2Res.value){
+                if (areAddonsValid) {
                     repSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br></br>
-                Repair time saved: ~${((baseDuration - toolboxDuration) + repairTimeSaved).toFixed(2)} seconds </br></br></br>
-                Sabotage duration: ${sabotageDuration} seconds </br></br></br>
-                Sabotage time: ${sabotageTime.toFixed(2)} seconds`; 
-                duration.innerHTML = "Duration: " + baseDuration + " charges";
-                itemResult.innerHTML = `Item: ${item.value}`
-                healSpeed.innerHTML = ""
-            } else {
-                healSpeed.innerHTML = ""
-                duration.innerHTML = ""
-                repSpeed.innerHTML = "Select 2 unique addons."
-            }
+                    Repair time saved: ~${((baseDuration - toolboxDuration) + repairTimeSaved).toFixed(2)} seconds </br></br></br>
+                    Sabotage duration: ${sabotageDuration} seconds </br></br></br>
+                    Sabotage time: ${sabotageTime.toFixed(2)} seconds`;
+                    duration.innerHTML = "Duration: " + baseDuration + " charges";
+                    itemResult.innerHTML = `Item: ${item.value}`
+                    healSpeed.innerHTML = ""
+                } else {
+                    healSpeed.innerHTML = ""
+                    duration.innerHTML = ""
+                    repSpeed.innerHTML = "Select 2 unique addons."
+                }
             } else if (item.value.includes("Flashlight")) {
                 let beamLength = 10;
                 let blindDuration = 2;
@@ -337,9 +339,9 @@
                     baseDuration = 12;
                     blindDuration *= 1.15;
                 }
-                
 
-                switch (addon1Res.value) {
+
+                switch (addon1Res) {
                     case "Odd Bulb":
                         baseDuration *= 0.86;
                         blindDuration *= 1.25;
@@ -377,7 +379,7 @@
                         beamLength *= 0.75;
                         break;
                 }
-                switch (addon2Res.value) {
+                switch (addon2Res) {
                     case "Odd Bulb":
                         baseDuration *= 0.86;
                         blindDuration *= 1.25;
@@ -415,25 +417,25 @@
                         beamLength *= 0.75;
                         break;
                 }
-                 if (isStreetwise.checked === true) {
+                if (isStreetwise.checked === true) {
                     batteryEfficiency += 0.25;
                 }
-                if(addon1Res.value !== addon2Res.value){
+                if (areAddonsValid) {
                     duration.innerHTML = `Battery life: ${(baseDuration * batteryEfficiency).toFixed(2)} seconds </br></br></br>
-                Blind duration: ${blindDuration.toFixed(2)} seconds </br></br></br>
-                Beam length: ${beamLength.toFixed(2)} meters`
-                healSpeed.innerHTML = ""
-                repSpeed.innerHTML = ""
-                itemResult.innerHTML = `Item: ${item.value}`
-            } else {
-                healSpeed.innerHTML = ""
-                repSpeed.innerHTML = ""
-                duration.innerHTML = "Select 2 unique addons."
-            }
+                    Blind duration: ${blindDuration.toFixed(2)} seconds </br></br></br>
+                    Beam length: ${beamLength.toFixed(2)} meters`
+                    healSpeed.innerHTML = ""
+                    repSpeed.innerHTML = ""
+                    itemResult.innerHTML = `Item: ${item.value}`
+                } else {
+                    healSpeed.innerHTML = ""
+                    repSpeed.innerHTML = ""
+                    duration.innerHTML = "Select 2 unique addons."
+                }
             }
         }
     </script>
-    
+
 
 </body>
 
