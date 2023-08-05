@@ -121,9 +121,7 @@
         <button onclick="statCalc()">Calculate</button>
         <br>
         <br>
-        <i>PS: Calculating repair time saved per toolbox is quite complicated <br>
-            and requires testing which i cannot do by myself in an efficient way. <br>
-            Results are approximate and might change in the future.</i>
+        <i>PS: Time saved per toolbox results are approximate.</i>
     </div>
 
     <div id="resultDiv">
@@ -219,10 +217,12 @@
                 duration.innerHTML = "Duration: " + baseDuration + " charges";
                 itemResult.innerHTML = `Item: ${item.value}`
             } else if (item.value.includes("Tool")) {
+                let chargesPerSec = 1;
                 let repairSpeed = 0;
                 let sabotageTime = 3;
                 let sabotageDuration = 30;
                 let repairTimeSaved = 0;
+                let toolboxDuration = 0;
                 if (item.value === "Worn-Out Tools") {
                     baseDuration = 16;
                     repairSpeed = 50;
@@ -302,9 +302,10 @@
                         baseDuration += 8;
                         break;
                 }
-                repairTimeSaved += (baseDuration * (repairSpeed / 100))
+                chargesPerSec += (repairSpeed / 100);
+                toolboxDuration = baseDuration / chargesPerSec;
                 repSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br></br>
-                Repair time saved: ~${repairTimeSaved.toFixed(2)} seconds </br></br></br>
+                Repair time saved: ~${((baseDuration - toolboxDuration) + repairTimeSaved).toFixed(2)} seconds </br></br></br>
                 Sabotage duration: ${sabotageDuration} seconds </br></br></br>
                 Sabotage time: ${sabotageTime.toFixed(2)} seconds`; 
                 duration.innerHTML = "Duration: " + baseDuration + " charges";
