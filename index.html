@@ -6,139 +6,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survivor items calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="mainDiv">
-        <h1>Survivor item calculator</h1>
-        <i>work in progress</i>
-        <h3>Choose item:</h3>
-        <select name="itemsDropdownList" id="itemsDropdownList">
-            <option value="empty"></option>
-            <option value="----Med-kits----">----Med-kits----</option>
-            <option value="Camping Aid Kit">Camping Aid Kit</option>
-            <option value="First Aid Kit">First Aid Kit</option>
-            <option value="Emergency Med-Kit">Emergency Med-Kit</option>
-            <option value="Ranger Med-Kit">Ranger Med-Kit</option>
-            <option value="----Toolboxes----">----Toolboxes----</option>
-            <option value="Worn-Out Tools">Worn-Out Tools</option>
-            <option value="Toolbox">Toolbox</option>
-            <option value="Mechanic's Toolbox">Mechanic's Toolbox</option>
-            <option value="Commodious Toolbox">Commodious Toolbox</option>
-            <option value="Engineer's Toolbox">Engineer's Toolbox</option>
-            <option value="Alex's Toolbox">Alex's Toolbox</option>
-            <option value="----Flashlights----">----Flashlights----</option>
-            <option value="Flashlight">Flashlight</option>
-            <option value="Sport Flashlight">Sport Flashlight</option>
-            <option value="Utility Flashlight">Utility Flashlight</option>
-        </select>
+    <select class="dropdownCustomise" id="modeChanger" onchange="modeChanger()">
+        <option value="dark">Lavender fantasy</option>
+        <option value="light">Peachy delight</option>
+    </select>
+    <div id="shell">
+        <div id="mainDiv">
+            <h1 class="titles">Survivor item calculator</h1>
+            <h3 class="titles">Choose item:</h3>
+            <select class="dropdownCustomise" name="itemsDropdownList" id="itemsDropdownList" onchange="addonSelector()">
+                <option value="----"></option>
+                <option value="----med-kits----">----Med-kits----</option>
+                <option value="Camping Aid Kit">Camping Aid Kit</option>
+                <option value="First Aid Kit">First Aid Kit</option>
+                <option value="Emergency Med-Kit">Emergency Med-Kit</option>
+                <option value="Ranger Med-Kit">Ranger Med-Kit</option>
+                <option value="----toolboxes----">----Toolboxes----</option>
+                <option value="Worn-Out Tools">Worn-Out Tools</option>
+                <option value="Toolbox">Toolbox</option>
+                <option value="Mechanic's Toolbox">Mechanic's Toolbox</option>
+                <option value="Commodious Toolbox">Commodious Toolbox</option>
+                <option value="Engineer's Toolbox">Engineer's Toolbox</option>
+                <option value="Alex's Toolbox">Alex's Toolbox</option>
+                <option value="----flashlights----">----Flashlights----</option>
+                <option value="Flashlight">Flashlight</option>
+                <option value="Sport Flashlight">Sport Flashlight</option>
+                <option value="Utility Flashlight">Utility Flashlight</option>
+            </select>
+            <br>
 
-        <br>
+            <h3 class="titles">Streetwise?</h3>
+            <input type="checkbox" value="true" id="streetwise">
 
-        <h3>Streetwise?</h3>
-        <input type="checkbox" value="true" id="streetwise">
-        <h3 id="addonStyle">Choose addons:</h3>
-        <h3 id="addon1"></h3>
-        <select name="addons1" id="addons1">
-            <option value="----"></option>
+            <h3 class="titles" id="addonStyle">Choose addons:</h3>
+            <br>
+            <select class="dropdownCustomise" name="addons1" id="addons1">
+                <option value="----">Choose item first</option>
+            </select>
+            <br>
+            <select class="dropdownCustomise" name="addons2" id="addons2">
+                <option value="----">Choose item first</option>
+            </select>
 
-            <!-- Medkit addons -->
-            <option value="----Medkit addons----">----Medkit addons----</option>
-            <option value="Gel Dressings"> Gel Dressings </option>
-            <option value="Abdominal Dressing"> Abdominal Dressing </option>
-            <option value="Gauze Roll"> Gauze Roll </option>
-            <option value="Medical Scissors"> Medical Scissors </option>
-            <option value="Self Adherent Wrap"> Self Adherent Wrap </option>
-            <option value="Bandages"> Bandages </option>
-            <option value="Butterfly Tape"> Butterfly Tape </option>
+            <br>
+            <br>
 
-            <!-- Toolbox addons -->
-            <option value="----Toolbox addons----">----Toolbox addons----</option>
-            <option value="Brand New Part"> Brand New Part </option>
-            <option value="Grip Wrench"> Grip Wrench </option>
-            <option value="Hacksaw"> Hacksaw </option>
-            <option value="Cutting Wire"> Cutting Wire </option>
-            <option value="Socket Swivels"> Socket Swivels </option>
-            <option value="Wire Spool"> Wire Spool </option>
-            <option value="Clean Rag"> Clean Rag </option>
-            <option value="Scraps"> Scraps </option>
-
-            <!-- Flashlight addons -->
-            <option value="----Flashlight addons---">----Flashlight addons----</option>
-            <option value="Odd Bulb"> Odd Bulb </option>
-            <option value="High-End Sapphire Lens"> High-End Sapphire Lens </option>
-            <option value="Intense Halogen"> Intense Halogen </option>
-            <option value="Long Life Battery"> Long Life Battery </option>
-            <option value="Focus Lens"> Focus Lens </option>
-            <option value="Heavy Duty Battery"> Heavy Duty Battery </option>
-            <option value="TIR Optic"> TIR Optic </option>
-            <option value="Low Amp Filament"> Low Amp Filament </option>
-            <option value="Battery"> Battery </option>
-            <option value="Power Bulb"> Power Bulb </option>
-        </select>
-        <h3 id="addon2"></h3>
-        <select name="addons2" id="addons2">
-            <option value="----"></option>
-
-            <!-- Medkit addons -->
-            <option value="----Medkit addons---">----Medkit addons---</option>
-            <option value="Gel Dressings"> Gel Dressings </option>
-            <option value="Abdominal Dressing"> Abdominal Dressing </option>
-            <option value="Gauze Roll"> Gauze Roll </option>
-            <option value="Medical Scissors"> Medical Scissors </option>
-            <option value="Self Adherent Wrap"> Self Adherent Wrap </option>
-            <option value="Bandages"> Bandages </option>
-            <option value="Butterfly Tape"> Butterfly Tape </option>
-
-            <!-- Toolbox addons -->
-            <option value="----Toolbox addons---">----Toolbox addons---</option>
-            <option value="Brand New Part"> Brand New Part </option>
-            <option value="Grip Wrench"> Grip Wrench </option>
-            <option value="Hacksaw"> Hacksaw </option>
-            <option value="Cutting Wire"> Cutting Wire </option>
-            <option value="Socket Swivels"> Socket Swivels </option>
-            <option value="Wire Spool"> Wire Spool </option>
-            <option value="Clean Rag"> Clean Rag </option>
-            <option value="Scraps"> Scraps </option>
-
-            <!-- Flashlight addons -->
-            <option value="----Flashlight addons---">----Flashlight addons---</option>
-            <option value="Odd Bulb"> Odd Bulb </option>
-            <option value="High-End Sapphire Lens"> High-End Sapphire Lens </option>
-            <option value="Intense Halogen"> Intense Halogen </option>
-            <option value="Long Life Battery"> Long Life Battery </option>
-            <option value="Focus Lens"> Focus Lens </option>
-            <option value="Heavy Duty Battery"> Heavy Duty Battery </option>
-            <option value="TIR Optic"> TIR Optic </option>
-            <option value="Low Amp Filament"> Low Amp Filament </option>
-            <option value="Battery"> Battery </option>
-            <option value="Power Bulb"> Power Bulb </option>
-        </select>
-
-        <br>
-        <br>
-        <br>
-        <button onclick="statCalc()">Calculate</button>
-        <br>
-        <br>
-        <i>PS: Time saved per toolbox results are approximate.</i>
+            <button class="dropdownCustomise" onclick="statCalc()">Calculate</button>
+            <br>
+            <br>
+        </div>
+        <div id="resultDiv">
+            <h3 class="resultH3">Result:</h3>
+            <h3 class="resultH3" id="itemResult"></h3>
+            <h3 class="resultH3" id="duration"></h3>
+            <h3 class="resultH3" id="healSpeed"></h3>
+            <h3 class="resultH3" id="repSpeed"></h3>
+        </div>
     </div>
-
-    <div id="resultDiv">
-        <h3>Result:</h3>
-        <h3 id="itemResult"></h3>
-        <h3 id="duration"></h3>
-        <h3 id="healSpeed"></h3>
-        <h3 id="repSpeed"></h3>
-    </div>
+    
     <script>
+        function modeChanger() {
+            let background = document.querySelector("body");
+            let mainDiv = document.querySelector("#mainDiv");
+            let resultDiv = document.querySelector("#resultDiv")
+            let modeResult = document.getElementById("modeChanger").value;
+            let text1 = document.querySelectorAll(".titles")
+            let text2 = document.querySelectorAll(".resultH3")
+            let dropdownMenus = document.querySelectorAll(".dropdownCustomise")
+            if(modeResult === "dark") {
+                background.style.backgroundColor = "#231F20"
+                mainDiv.style.backgroundColor = "#7067CF"
+                resultDiv.style.backgroundColor = "#D5F2E3"
+                for (const element of text1) {
+                    element.style.color = "#F7D1CD"
+                }
+                for (const element of dropdownMenus) {
+                    element.style.backgroundColor = "#231F20"
+                    element.style.color = "#F7D1CD"
+                }
+            } else {
+                background.style.backgroundColor = "#2274A5"
+                mainDiv.style.backgroundColor = "#FFA69E"
+                resultDiv.style.backgroundColor = "#B8F2E6"
+                for (const element of text1) {
+                    element.style.color = "#122C34"
+                }
+                for (const element of dropdownMenus) {
+                    element.style.backgroundColor = "#B8F2E6"
+                    element.style.color = "#122C34"
+                }
+            }
+            
+        }
+        function addonSelector() {
+            let itemChosen = document.getElementById("itemsDropdownList")
+            let medkitArr = ["Gel Dressings", "Abdominal Dressing", "Gauze Roll", "Medical Scissors", "Self Adherent Wrap", "Bandages", "Butterfly Tape"];
+            let toolboxArr = ["Brand New Part", "Grip Wrench", "Hacksaw", "Cutting Wire", "Socket Swivels", "Wire Spool", "Clean Rag", "Scraps"];
+            let flashlightArr = ["Odd Bulb", "High-End Sapphire Lens", "Intense Halogen", "Long Life Battery", "Focus Lens", "Heavy Duty Battery", "TIR Optic", "Low Amp Filament", "Battery", "Power Bulb"]
+            if (itemChosen.value.includes("Kit")) {
+                while (addons1.options.length > 0) {
+                    addons1.remove(0);
+                }
+                while (addons2.options.length > 0) {
+                    addons2.remove(0);
+                }
+                let listPrompt1 = document.createElement("option");
+                listPrompt1.value = "----";
+                listPrompt1.text = "Choose addon";
+                let listPrompt2 = document.createElement("option");
+                listPrompt2.value = "----";
+                listPrompt2.text = "Choose addon";
+                let element1 = document.getElementById("addons1");
+                element1.remove(element1.selectedIndex);
+                let element2 = document.getElementById("addons2");
+                element2.remove(element2.selectedIndex);
+                addons1.add(listPrompt1)
+                addons2.add(listPrompt2)
+                for (const addon of medkitArr) {
+                    let currAddon1 = document.createElement("option");
+                    let currAddon2 = document.createElement("option");
+                    currAddon1.value = addon;
+                    currAddon2.value = addon;
+                    currAddon1.text = addon;
+                    currAddon2.text = addon;
+                    addons1.add(currAddon1)
+                    addons2.add(currAddon2)
+                }
+
+            } else if (itemChosen.value.includes("Tool")) {
+                while (addons1.options.length > 0) {
+                    addons1.remove(0);
+                }
+                while (addons2.options.length > 0) {
+                    addons2.remove(0);
+                }
+                let listPrompt1 = document.createElement("option");
+                listPrompt1.value = "----";
+                listPrompt1.text = "Choose addon";
+                let listPrompt2 = document.createElement("option");
+                listPrompt2.value = "----";
+                listPrompt2.text = "Choose addon";
+                let element1 = document.getElementById("addons1");
+                element1.remove(element1.selectedIndex);
+                let element2 = document.getElementById("addons2");
+                element2.remove(element2.selectedIndex);
+                addons1.add(listPrompt1)
+                addons2.add(listPrompt2)
+                for (const addon of toolboxArr) {
+                    let currAddon1 = document.createElement("option");
+                    let currAddon2 = document.createElement("option");
+                    currAddon1.value = addon;
+                    currAddon2.value = addon;
+                    currAddon1.text = addon;
+                    currAddon2.text = addon;
+                    addons1.add(currAddon1)
+                    addons2.add(currAddon2)
+                }
+
+            } else if (itemChosen.value.includes("Flashlight")) {
+                while (addons1.options.length > 0) {
+                    addons1.remove(0);
+                }
+                while (addons2.options.length > 0) {
+                    addons2.remove(0);
+                }
+                let listPrompt1 = document.createElement("option");
+                listPrompt1.value = "----";
+                listPrompt1.text = "Choose addon";
+                let listPrompt2 = document.createElement("option");
+                listPrompt2.value = "----";
+                listPrompt2.text = "Choose addon";
+                let element1 = document.getElementById("addons1");
+                element1.remove(element1.selectedIndex);
+                let element2 = document.getElementById("addons2");
+                element2.remove(element2.selectedIndex);
+                addons1.add(listPrompt1)
+                addons2.add(listPrompt2)
+                for (const addon of flashlightArr) {
+                    let currAddon1 = document.createElement("option");
+                    let currAddon2 = document.createElement("option");
+                    currAddon1.value = addon;
+                    currAddon2.value = addon;
+                    currAddon1.text = addon;
+                    currAddon2.text = addon;
+                    addons1.add(currAddon1)
+                    addons2.add(currAddon2)
+                }
+
+            } else {
+                while (addons1.options.length > 0) {
+                    addons1.remove(0);
+                }
+                while (addons2.options.length > 0) {
+                    addons2.remove(0);
+                }
+                let listPrompt1 = document.createElement("option");
+                listPrompt1.value = "----";
+                listPrompt1.text = "Choose item first";
+                let listPrompt2 = document.createElement("option");
+                listPrompt2.value = "----";
+                listPrompt2.text = "Choose item first";
+                addons1.add(listPrompt1)
+                addons2.add(listPrompt2)
+            }
+        }
         function statCalc() {
             let item = document.querySelector("#itemsDropdownList")
             let baseDuration = 0;
             let areAddonsValid = true
             let addon1Res = (document.querySelector("#addons1")).value
             let addon2Res = (document.querySelector("#addons2")).value
-            if(addon1Res === addon2Res && addon1Res !== "----") {
+            if (addon1Res === addon2Res && addon1Res !== "----") {
                 areAddonsValid = false;
             }
             let isStreetwise = document.getElementById("streetwise")
@@ -211,16 +295,17 @@
                     baseDuration *= 1.25;
                 }
                 let healTime = 16 - (8 * (healingSpeed / 100));
-                if(areAddonsValid){
-                    healSpeed.innerHTML = `Altruistic healing speed: +${healingSpeed}% </br></br></br>
-                    Altruistic heal time: ${healTime.toFixed(2)} seconds </br></br></br>
-                    Available self-heals: ${Math.floor(baseDuration / 24)} </br></br></br>
+                if (areAddonsValid) {
+                    healSpeed.innerHTML = `Altruistic healing speed: +${healingSpeed}% </br></br>
+                    Altruistic heal time: ${healTime.toFixed(2)} seconds </br></br>
+                    Available self-heals: ${Math.floor(baseDuration / 24)} </br></br>
                     Available altruistic heals: ${Math.floor(baseDuration / 16)}`;
                     repSpeed.innerHTML = "";
                     duration.innerHTML = "Duration: " + baseDuration + " charges";
                     itemResult.innerHTML = `Item: ${item.value}`
                 } else {
-                    repSpeed.innerHTML = "";
+                    let itemResult =innerHTML = ""
+                    repSpeed.innerHTML = ""
                     duration.innerHTML = ""
                     healSpeed.innerHTML = "Select 2 unique addons."
                 }
@@ -314,16 +399,17 @@
                 chargesPerSec += (repairSpeed / 100);
                 toolboxDuration = baseDuration / chargesPerSec;
                 if (areAddonsValid) {
-                    repSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br></br>
-                    Repair time saved: ~${((baseDuration - toolboxDuration) + repairTimeSaved).toFixed(2)} seconds </br></br></br>
-                    Sabotage duration: ${sabotageDuration} seconds </br></br></br>
+                    healSpeed.innerHTML = `Repair speed: +${repairSpeed}% </br></br>
+                    Repair time saved: ~${((baseDuration - toolboxDuration) + repairTimeSaved).toFixed(2)} seconds </br></br>
+                    Sabotage duration: ${sabotageDuration} seconds </br></br>
                     Sabotage time: ${sabotageTime.toFixed(2)} seconds`;
                     duration.innerHTML = "Duration: " + baseDuration + " charges";
                     itemResult.innerHTML = `Item: ${item.value}`
-                    healSpeed.innerHTML = ""
+                    repSpeed.innerHTML = ""
                 } else {
-                    healSpeed.innerHTML = ""
-                    duration.innerHTML = ""
+                    itemResult.innerHTML.remove()
+                    healSpeed.innerHTML.remove()
+                    duration.innerHTML.remove()
                     repSpeed.innerHTML = "Select 2 unique addons."
                 }
             } else if (item.value.includes("Flashlight")) {
@@ -421,13 +507,14 @@
                     batteryEfficiency += 0.25;
                 }
                 if (areAddonsValid) {
-                    duration.innerHTML = `Battery life: ${(baseDuration * batteryEfficiency).toFixed(2)} seconds </br></br></br>
-                    Blind duration: ${blindDuration.toFixed(2)} seconds </br></br></br>
+                    duration.innerHTML = `Battery life: ${(baseDuration * batteryEfficiency).toFixed(2)} seconds </br></br>
+                    Blind duration: ${blindDuration.toFixed(2)} seconds </br></br>
                     Beam length: ${beamLength.toFixed(2)} meters`
                     healSpeed.innerHTML = ""
                     repSpeed.innerHTML = ""
                     itemResult.innerHTML = `Item: ${item.value}`
                 } else {
+                    itemResult.innerHTML = ""
                     healSpeed.innerHTML = ""
                     repSpeed.innerHTML = ""
                     duration.innerHTML = "Select 2 unique addons."
