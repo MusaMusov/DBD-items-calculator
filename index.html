@@ -20,7 +20,8 @@
         <div id="mainDiv">
             <h1 class="titles">Survivor item calculator</h1>
             <h3 class="titles">Choose item:</h3>
-            <select class="dropdownCustomise" name="itemsDropdownList" id="itemsDropdownList" onchange="addonSelector()">
+            <select class="dropdownCustomise" name="itemsDropdownList" id="itemsDropdownList"
+                onchange="addonSelector(), backgroundColor()">
                 <option value="----"></option>
                 <option value="----med-kits----">----Med-kits----</option>
                 <option value="Camping Aid Kit">Camping Aid Kit</option>
@@ -41,16 +42,15 @@
             </select>
             <br>
 
-            <h3 class="titles">Streetwise?</h3>
-            <input type="checkbox" value="true" id="streetwise">
-
+            <span class="titles">Streetwise?</span>
+            <input class="titles" type="checkbox" value="true" id="streetwise">
             <h3 class="titles" id="addonStyle">Choose addons:</h3>
             <br>
-            <select class="dropdownCustomise" name="addons1" id="addons1">
+            <select class="dropdownCustomise" name="addons1" id="addons1" onchange="addonImager()">
                 <option value="----">Choose item first</option>
             </select>
             <br>
-            <select class="dropdownCustomise" name="addons2" id="addons2">
+            <select class="dropdownCustomise" name="addons2" id="addons2" onchange="addonImager()">
                 <option value="----">Choose item first</option>
             </select>
 
@@ -63,14 +63,223 @@
         </div>
         <div id="resultDiv">
             <h3 class="resultH3">Result:</h3>
-            <h3 class="resultH3" id="itemResult"></h3>
+            <h3 class="resultH3" id="itemResultName"></h3>
+            <h3 class="resultH3" id="addonSelected"></h3>
             <h3 class="resultH3" id="duration"></h3>
             <h3 class="resultH3" id="healSpeed"></h3>
             <h3 class="resultH3" id="repSpeed"></h3>
         </div>
     </div>
-    
+
     <script>
+        function addonImager() {
+            let itemResult = document.getElementById("itemsDropdownList").value;
+            let result1 = document.getElementById("addons1").value;
+            let result2 = document.getElementById("addons2").value;
+            addonSelected.innerHTML = "Addons: &nbsp"
+            if (itemResult.includes("Kit")) {
+                switch (result1) {
+                    case "Gel Dressings":
+                        addonSelected.innerHTML += "<img src='./images/gelDressings.png'> &nbsp"
+                        break;
+                    case "Abdominal Dressing":
+                        addonSelected.innerHTML += "<img src='./images/abdominalDressing.png'> &nbsp"
+                        break;
+                    case "Gauze Roll":
+                        addonSelected.innerHTML += "<img src='./images/gauzeRoll.png'> &nbsp"
+                        break;
+                    case "Medical Scissors":
+                        addonSelected.innerHTML += "<img src='./images/medicalScissors.png'> &nbsp"
+                        break;
+                    case "Self Adherent Wrap":
+                        addonSelected.innerHTML += "<img src='./images/selfWrap.png'> &nbsp"
+                        break;
+                    case "Bandages":
+                        addonSelected.innerHTML += "<img src='./images/bandages.png'> &nbsp"
+                        break;
+                    case "Butterfly Tape":
+                        addonSelected.innerHTML += "<img src='./images/butterflyTape.png'> &nbsp"
+                        break;
+                }
+                switch (result2) {
+                    case "Gel Dressings":
+                        addonSelected.innerHTML += "<img src='./images/gelDressings.png'> &nbsp"
+                        break;
+                    case "Abdominal Dressing":
+                        addonSelected.innerHTML += "<img src='./images/abdominalDressing.png'> &nbsp"
+                        break;
+                    case "Gauze Roll":
+                        addonSelected.innerHTML += "<img src='./images/gauzeRoll.png'> &nbsp"
+                        break;
+                    case "Medical Scissors":
+                        addonSelected.innerHTML += "<img src='./images/medicalScissors.png'> &nbsp"
+                        break;
+                    case "Self Adherent Wrap":
+                        addonSelected.innerHTML += "<img src='./images/selfWrap.png'> &nbsp"
+                        break;
+                    case "Bandages":
+                        addonSelected.innerHTML += "<img src='./images/bandages.png'> &nbsp"
+                        break;
+                    case "Butterfly Tape":
+                        addonSelected.innerHTML += "<img src='./images/butterflyTape.png'> &nbsp"
+                        break;
+                }
+            } else if (itemResult.includes("Tool")) {
+                switch (result1) {
+                    case "Brand New Part":
+                        addonSelected.innerHTML += "<img src='./images/bnp.png'> &nbsp"
+                        break;
+                    case "Grip Wrench":
+                        addonSelected.innerHTML += "<img src='./images/gripWrench.png'> &nbsp"
+                        break;
+                    case "Hacksaw":
+                        addonSelected.innerHTML += "<img src='./images/hacksaw.png'> &nbsp"
+                        break;
+                    case "Cutting Wire":
+                        addonSelected.innerHTML += "<img src='./images/cuttingWire.png'> &nbsp"
+                        break;
+                    case "Socket Swivels":
+                        addonSelected.innerHTML += "<img src='./images/socketSwivels.png'> &nbsp"
+                        break;
+                    case "Wire Spool":
+                        addonSelected.innerHTML += "<img src='./images/wireSpool.png'> &nbsp"
+                        break;
+                    case "Clean Rag":
+                        addonSelected.innerHTML += "<img src='./images/cleanRag.png'> &nbsp"
+                        break;
+                    case "Scraps":
+                        addonSelected.innerHTML += "<img src='./images/scraps.png'> &nbsp"
+                        break;
+                }
+                switch (result2) {
+                    case "Brand New Part":
+                        addonSelected.innerHTML += "<img src='./images/bnp.png'> &nbsp"
+                        break;
+                    case "Grip Wrench":
+                        addonSelected.innerHTML += "<img src='./images/gripWrench.png'> &nbsp"
+                        break;
+                    case "Hacksaw":
+                        addonSelected.innerHTML += "<img src='./images/hacksaw.png'> &nbsp"
+                        break;
+                    case "Cutting Wire":
+                        addonSelected.innerHTML += "<img src='./images/cuttingWire.png'> &nbsp"
+                        break;
+                    case "Socket Swivels":
+                        addonSelected.innerHTML += "<img src='./images/socketSwivels.png'> &nbsp"
+                        break;
+                    case "Wire Spool":
+                        addonSelected.innerHTML += "<img src='./images/wireSpool.png'> &nbsp"
+                        break;
+                    case "Clean Rag":
+                        addonSelected.innerHTML += "<img src='./images/cleanRag.png'> &nbsp"
+                        break;
+                    case "Scraps":
+                        addonSelected.innerHTML += "<img src='./images/scraps.png'> &nbsp"
+                        break;
+                }
+            } else if (itemResult.includes("Flashlight")) {
+                switch (result1) {
+                    case "Odd Bulb":
+                        addonSelected.innerHTML += "<img src='./images/oddBulb.png'> &nbsp"
+                        break;
+                    case "High-End Sapphire Lens":
+                        addonSelected.innerHTML += "<img src='./images/sappLens.png'> &nbsp"
+                        break;
+                    case "Intense Halogen":
+                        addonSelected.innerHTML += "<img src='./images/intenseHal.png'> &nbsp"
+                        break;
+                    case "Long Life Battery":
+                        addonSelected.innerHTML += "<img src='./images/greenBat.png'> &nbsp"
+                        break;
+                    case "Focus Lens":
+                        addonSelected.innerHTML += "<img src='./images/focusLens.png'> &nbsp"
+                        break;
+                    case "Heavy Duty Battery":
+                        addonSelected.innerHTML += "<img src='./images/yellowBat.png'> &nbsp"
+                        break;
+                    case "Low Amp Filament":
+                        addonSelected.innerHTML += "<img src='./images/lowAmp.png'> &nbsp"
+                        break;
+                    case "TIR Optic":
+                        addonSelected.innerHTML += "<img src='./images/tirOptic.png'> &nbsp"
+                        break;
+                    case "Battery":
+                        addonSelected.innerHTML += "<img src='./images/bat.png'> &nbsp"
+                        break;
+                    case "Power Bulb":
+                        addonSelected.innerHTML += "<img src='./images/powerBulb.png'> &nbsp"
+                        break;
+                    case "Wide Lens":
+                        addonSelected.innerHTML += "<img src='./images/wideLens.png'> &nbsp"
+                        break;
+                }
+                switch (result2) {
+                    case "Odd Bulb":
+                        addonSelected.innerHTML += "<img src='./images/oddBulb.png'> &nbsp"
+                        break;
+                    case "High-End Sapphire Lens":
+                        addonSelected.innerHTML += "<img src='./images/sappLens.png'> &nbsp"
+                        break;
+                    case "Intense Halogen":
+                        addonSelected.innerHTML += "<img src='./images/intenseHal.png'> &nbsp"
+                        break;
+                    case "Long Life Battery":
+                        addonSelected.innerHTML += "<img src='./images/greenBat.png'> &nbsp"
+                        break;
+                    case "Focus Lens":
+                        addonSelected.innerHTML += "<img src='./images/focusLens.png'> &nbsp"
+                        break;
+                    case "Heavy Duty Battery":
+                        addonSelected.innerHTML += "<img src='./images/yellowBat.png'> &nbsp"
+                        break;
+                    case "Low Amp Filament":
+                        addonSelected.innerHTML += "<img src='./images/lowAmp.png'> &nbsp"
+                        break;
+                    case "TIR Optic":
+                        addonSelected.innerHTML += "<img src='./images/tirOptic.png'> &nbsp"
+                        break;
+                    case "Battery":
+                        addonSelected.innerHTML += "<img src='./images/bat.png'> &nbsp"
+                        break;
+                    case "Power Bulb":
+                        addonSelected.innerHTML += "<img src='./images/powerBulb.png'> &nbsp"
+                        break;
+                    case "Wide Lens":
+                        addonSelected.innerHTML += "<img src='./images/wideLens.png'> &nbsp"
+                        break;
+                }
+            }
+        }
+        function backgroundColor() {
+            let itemResult = document.getElementById("itemsDropdownList").value;
+            if (itemResult === "Camping Aid Kit") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/brownMed.png'>`
+            } else if (itemResult === "First Aid Kit") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/yellowMed.png'>`
+            } else if (itemResult === "Emergency Med-Kit") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/greenMed.png'>`
+            } else if (itemResult === "Ranger Med-Kit") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/purpleMed.png'>`
+            } else if (itemResult === "Worn-Out Tools") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/brownTool.png'>`
+            } else if (itemResult === "Toolbox") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/yellowTool.png'>`
+            } else if (itemResult === "Mechanic's Toolbox") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/mechanicTool.png'>`
+            } else if (itemResult === "Commodious Toolbox") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/commTool.png'>`
+            } else if (itemResult === "Engineer's Toolbox") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/engTool.png'>`
+            } else if (itemResult === "Alex's Toolbox") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/alexTool.png'>`
+            } else if (itemResult === "Flashlight") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/yellowFlash.png'>`
+            } else if (itemResult === "Sport Flashlight") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/greenFlash2.png'>`
+            } else if (itemResult === "Utility Flashlight") {
+                itemResultName.innerHTML = `Item:  &nbsp <img src='./images/purpleFlash.png'>`
+            }
+        }
         function modeChanger() {
             let background = document.querySelector("body");
             let mainDiv = document.querySelector("#mainDiv");
@@ -79,7 +288,7 @@
             let text1 = document.querySelectorAll(".titles")
             let text2 = document.querySelectorAll(".resultH3")
             let dropdownMenus = document.querySelectorAll(".dropdownCustomise")
-            if(modeResult === "dark") {
+            if (modeResult === "dark") {
                 background.style.backgroundColor = "#231F20"
                 mainDiv.style.backgroundColor = "#7067CF"
                 resultDiv.style.backgroundColor = "#D5F2E3"
@@ -102,7 +311,7 @@
                     element.style.color = "#122C34"
                 }
             }
-            
+
         }
         function addonSelector() {
             let itemChosen = document.getElementById("itemsDropdownList")
@@ -231,7 +440,6 @@
             if (item.value.includes("Kit")) {
                 baseDuration = 24;
 
-
                 let healingSpeed = 0;
                 if (item.value === "Camping Aid Kit") {
                     healingSpeed = 35;
@@ -302,9 +510,7 @@
                     Available altruistic heals: ${Math.floor(baseDuration / 16)}`;
                     repSpeed.innerHTML = "";
                     duration.innerHTML = "Duration: " + baseDuration + " charges";
-                    itemResult.innerHTML = `Item: ${item.value}`
                 } else {
-                    let itemResult =innerHTML = ""
                     repSpeed.innerHTML = ""
                     duration.innerHTML = ""
                     healSpeed.innerHTML = "Select 2 unique addons."
@@ -404,10 +610,8 @@
                     Sabotage duration: ${sabotageDuration} seconds </br></br>
                     Sabotage time: ${sabotageTime.toFixed(2)} seconds`;
                     duration.innerHTML = "Duration: " + baseDuration + " charges";
-                    itemResult.innerHTML = `Item: ${item.value}`
                     repSpeed.innerHTML = ""
                 } else {
-                    itemResult.innerHTML.remove()
                     healSpeed.innerHTML.remove()
                     duration.innerHTML.remove()
                     repSpeed.innerHTML = "Select 2 unique addons."
@@ -512,9 +716,7 @@
                     Beam length: ${beamLength.toFixed(2)} meters`
                     healSpeed.innerHTML = ""
                     repSpeed.innerHTML = ""
-                    itemResult.innerHTML = `Item: ${item.value}`
                 } else {
-                    itemResult.innerHTML = ""
                     healSpeed.innerHTML = ""
                     repSpeed.innerHTML = ""
                     duration.innerHTML = "Select 2 unique addons."
