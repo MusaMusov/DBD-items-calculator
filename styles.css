@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     padding: 4%;
     max-width: 60%;
-    min-height: 95%;
+    min-height: 80%;
     
 }
 
@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 4%;
-    max-width: 50%;
+    max-width: 65%;
     min-height: 50%;
     max-height: 100%;
 }

@@ -21,7 +21,7 @@
             <h1 class="titles">Survivor item calculator</h1>
             <h3 class="titles">Choose item:</h3>
             <select class="dropdownCustomise" name="itemsDropdownList" id="itemsDropdownList"
-                onchange="addonSelector(), backgroundColor(), addonImager()">
+                onchange="addonSelector(), backgroundColor(), addonImager(), statCalc()">
                 <option value="----"></option>
                 <option value="----med-kits----">----Med-kits----</option>
                 <option value="Camping Aid Kit">Camping Aid Kit</option>
@@ -43,23 +43,20 @@
             <br>
 
             <span class="titles">Streetwise?</span>
-            <input class="titles" type="checkbox" value="true" id="streetwise">
+            <input class="titles" type="checkbox" value="true" id="streetwise" onchange="statCalc()">
             <h3 class="titles" id="addonStyle">Choose addons:</h3>
             <br>
-            <select class="dropdownCustomise" name="addons1" id="addons1" onchange="addonImager()">
+            <select class="dropdownCustomise" name="addons1" id="addons1" onchange="addonImager(), statCalc()">
                 <option value="----">Choose item first</option>
             </select>
             <br>
-            <select class="dropdownCustomise" name="addons2" id="addons2" onchange="addonImager()">
+            <select class="dropdownCustomise" name="addons2" id="addons2" onchange="addonImager(), statCalc()">
                 <option value="----">Choose item first</option>
             </select>
-
             <br>
             <br>
-
-            <button class="dropdownCustomise" onclick="statCalc()">Calculate</button>
             <br>
-            <br>
+            
         </div>
         <div id="resultDiv">
             <h3 class="resultH3">Result:</h3>
@@ -76,8 +73,9 @@
             let itemResult = document.getElementById("itemsDropdownList").value;
             let result1 = document.getElementById("addons1").value;
             let result2 = document.getElementById("addons2").value;
-            addonSelected.innerHTML = "Addons: &nbsp"
+            
             if (itemResult.includes("Kit")) {
+                addonSelected.innerHTML = "Addons: &nbsp"
                 switch (result1) {
                     case "Gel Dressings":
                         addonSelected.innerHTML += "<img src='./images/gelDressings.png'> &nbsp"
@@ -125,6 +123,7 @@
                         break;
                 }
             } else if (itemResult.includes("Tool")) {
+                addonSelected.innerHTML = "Addons: &nbsp"
                 switch (result1) {
                     case "Brand New Part":
                         addonSelected.innerHTML += "<img src='./images/bnp.png'> &nbsp"
@@ -178,6 +177,7 @@
                         break;
                 }
             } else if (itemResult.includes("Flashlight")) {
+                addonSelected.innerHTML = "Addons: &nbsp"
                 switch (result1) {
                     case "Odd Bulb":
                         addonSelected.innerHTML += "<img src='./images/oddBulb.png'> &nbsp"
